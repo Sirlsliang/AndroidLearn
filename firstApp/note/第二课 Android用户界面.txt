@@ -1,0 +1,39 @@
+用户界面的设计：
+	设计用户界面的方法有两种：过程性设计和声明设计
+		过程性设计：用代码设计用户界面
+		声明性设计:不涉及代码。利用声明性的语言如XML
+		Android同时支持过程性设计和声明性设计，允许开发人员使用任一风格创建用户界面
+
+	分析刚建工程的代码：
+	class	MainActivity extends AppCompatActivity{
+			
+			@Override
+			protected void onCreate(Bundle savedInstanceState){
+				super.onCreate(savedInstanceState);
+				setContentView(R.layout.activity_main); //利用一个Android 视图部件填充该活动的屏幕区域内容。
+				//R.layout.main是一个资源标识符，引用了res/layout目录中的main.xml
+				//R类是由Android 插件自动管理的，无论将一个文件放到***res目录中的哪个位置，Android IDE 插件都会注意到这一变化并自动在gen目录中的R.java文件内添加资源ID。
+			}
+	}
+
+布局：
+	存放一个或多个子对象及某种行为的容器，行为描述了如何将这些子对象放置在屏幕上其父对象的矩形区域中。
+	常用布局：
+		FrameLayout(框架布局)：从屏幕的左上角开始显示子对象，主要用于选项卡视图和图像切换器。
+		LinearLayout(线性布局)：以单列或单行的形式显示子对象，这时最常用的布局对象
+		RelativeLayout(相对布局)：相对于其他子对象或父对象的位置显示子对象。
+		Tabkelayout（表格布局）：	以多行或多列的方式显示子对象，类似于HTML表格。
+	布局方式常用的一些参数：
+		xmlns:android="http://schemas.android.com/apk/res/android" 定义android的xml命名空间
+		android:layout_width="fill_parent",android:layout_height="fill_parent"
+		声明此布局的高度和宽度与父对象的高度和宽度相同，可能的值有：fill_parent或wrap_parent
+
+	在 main.xml文件中使用@string/resid这种语法形式可以引用res/values/strings.xml中的字符串。
+		在main.xml中使用android:text="@string/main_label"/> 在strings.xml中定义：<string name="main_label">Main</string>
+	定义颜色：（res/values/colors.xml ）文件中
+		在colors.xml中定义颜色：<color name="background">#ffffff</color>在main.xml利用android:background="@color/background"引用
+		android:orientation="vertical": 竖直方式对齐。“horizontal”:水平方式对齐
+	定义id：在main.xml中利用@+id/resid 的方式创建一个新的资源ID供其它对象引用。	
+		例如，@+id/about_button 定义了About按钮的ID，以后用户按下该按钮时，我们将使用这个ID触发某个事件。
+	
+		android:layout_gravity:针对控件，android:gravity:针对空间里面的元素
