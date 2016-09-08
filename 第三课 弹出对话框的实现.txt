@@ -1,0 +1,18 @@
+1、	弹出一个新的对话框需要一个新的Activity。即在layout文件夹中新建一个about.xml的layout文件
+2、	然后新建一个继承了Activity 的 类，然后重写onCreate(Bundle savedInstanceState) 方法，并在其中调用setContentView(*.xml)
+		利用setOnClickListener(object)方法将一个对象注册到Listener上，一般注册到activity上，然后在被注册对象上重写onClick（View v）方法。
+		新activity 的产生：
+			创建一个Intent对象 new Intent(activitObject,XX.class); 然后startActivity(intentObject);
+
+3、要想在Android 中启动某个活动，首先需要创建Intent类的实例。Android 中有两种Intent：
+			public的Intent是在系统级注册的，可从任何应用程序中调用。
+			private 的Intent只能在一个应用程序内应用
+4、每个活动都需要在AndroidManifest.xml文件中声明。
+5、放在values 中的文件都可以利用R来获取。
+		比如新建了一个xml/strings.xml 那么就可以利用R.xml.strings 来获取资源。
+		layout文件中的文件一般都是利用setContentView(layoutResouce)方法来使用的
+
+		在*.xml中利用@+id/name 样式添加一个属性之后，我们就可以利用R.id.name 来获取样式了。
+
+
+
