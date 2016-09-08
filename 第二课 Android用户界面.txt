@@ -37,3 +37,4 @@
 		例如，@+id/about_button 定义了About按钮的ID，以后用户按下该按钮时，我们将使用这个ID触发某个事件。
 	
 		android:layout_gravity:针对控件，android:gravity:针对空间里面的元素
+
