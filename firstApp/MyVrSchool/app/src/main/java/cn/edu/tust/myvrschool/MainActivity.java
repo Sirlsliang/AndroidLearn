@@ -1,7 +1,11 @@
 package cn.edu.tust.myvrschool;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,8 +29,29 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         newButton.setOnClickListener(this);
         View exitButton = findViewById(R.id.exit_button);
         exitButton.setOnClickListener(this);
+       // setContentView(new GraphicsView(this));
 
     }
+
+    static public class GraphicsView extends View{
+        public GraphicsView(Context context){
+            super(context);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas){
+            Path circle = new Path();
+            circle.addCircle(150,150,100, Path.Direction.CW);
+            Paint cPaint = new Paint();
+            int color = getResources().getColor(R.color.myColor);
+            cPaint.setColor(color);
+            canvas.drawPath(circle,cPaint);
+            String qu = getResources().getString(R.string.quote);
+            canvas.drawTextOnPath(qu,circle,0,20,cPaint);
+
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -75,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG="Sudoku";
     private void startGame(int i){
         Log.d(TAG,"click on "+i);
-
+        Intent intent =  new Intent(MainActivity.this,Game.class);
+        intent.putExtra(Game.KEY_DIFFICULTY,i);
+        startActivity(intent);
     }
 }

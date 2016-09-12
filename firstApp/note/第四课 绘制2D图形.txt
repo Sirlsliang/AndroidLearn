@@ -1,0 +1,27 @@
+一、Android 图形基础
+	Android 中的颜色是用4个数字表示的，透明度、红色、绿色和蓝色（ARGB）各占一个数字。每个数字有256个（8位）可能的值。为了提高效率，Android代码中使用整数而不是用Color类的实例来表示颜色。
+	1、Color 对象的创建
+	  (1)、利用Color类的某个静态常量
+				int color = Color.Blue
+		(2)、利用透明度及各个颜色的数值创建
+				color = Color.argb(127，255，0，255);
+		(3)、在XML资源中定义所有的颜色
+				<?xml version="1.0" encoding="utf-8"?>
+				<resources>
+					<color name="mycolor">#7fff00ff</color>
+				</resources>
+				引用：
+					color = getResources().getColor(R.color.mycolor);
+			PS:getResources()返回当前活动的ResourceManager类。getColor()根据资源ID查找某个颜色
+
+	2、Paint 类
+		Paint 类包含样式、颜色以及绘制任何图形所需的其他信息。
+	3、Canvas 类
+		Canvas 类代表可以在其上绘图的画布，利用Canvas类中的各种方法就可以在画布上绘制线条、矩形、源以及其他任一图形。
+	Android 中的显示屏是由Activity支配的，Activity 引用View 类，View类又引用Canvas类。通过覆写View.onDraw()方法，可以在指定的画布上绘图。
+	4、Path 类
+		Path 类包含一组矢量绘图命令，例如画线条等命令。
+		为了实现奇妙的图形特效，Android 还提供了一些PathEffect类，利用这些类来实现特效操作.
+	5、Drawable 类
+		Android 中的Drawable类主要针对像位图或纯色这样只用于显示的视觉元素，可与其它图形结合使用。
+

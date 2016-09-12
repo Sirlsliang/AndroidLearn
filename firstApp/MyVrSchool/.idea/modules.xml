@@ -4,6 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyVrSchool.iml" filepath="$PROJECT_DIR$/MyVrSchool.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audio/audio.iml" filepath="$PROJECT_DIR$/audio/audio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonwidget/commonwidget.iml" filepath="$PROJECT_DIR$/commonwidget/commonwidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/panowidget/panowidget.iml" filepath="$PROJECT_DIR$/panowidget/panowidget.iml" />
     </modules>
   </component>
 </project>
