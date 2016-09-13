@@ -25,3 +25,10 @@
 	5、Drawable 类
 		Android 中的Drawable类主要针对像位图或纯色这样只用于显示的视觉元素，可与其它图形结合使用。
 
+二、在各个Intent 中传递参数
+	1、putExtra(key,value)，然后在新开的Activity中利用getIntent().getIntExtra(Key,defaultValue)来获取其值。
+
+三、Android 中的view
+	在Android 中View 的定义有两种：
+		（1)、在XML文件中定义，然后在Activity中利用setContentView(R.layout.id)方法来指定使用XML布局文件
+		 (2)、利用Android代码，新建一个继承自View的class。在onDraw()方法中绘制Android 视图。
