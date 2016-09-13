@@ -27,3 +27,11 @@
 
 二、视图
 	不要再视图的构造函数中使用视图的宽度和高度。这是因为调用视图的构造函数时，Android尚不知道该视图的大小，因此视图的宽度和高度值都被设置为0。真正计算这些值是在布局阶段，此阶段发生在构造函数被调用之后。可以使用onSizeChanged()方法在视图的宽度和高度值已知后通知这些值发生了变化，也可以随后在其他方法中使用getWidth()和getHeight()方法获得其值。
+
+三、在各个Intent 中传递参数
+	1、putExtra(key,value)，然后在新开的Activity中利用getIntent().getIntExtra(Key,defaultValue)来获取其值。
+
+四、Android 中的view
+	在Android 中View 的定义有两种：
+		（1)、在XML文件中定义，然后在Activity中利用setContentView(R.layout.id)方法来指定使用XML布局文件
+		 (2)、利用Android代码，新建一个继承自View的class。在onDraw()方法中绘制Android 视图。
