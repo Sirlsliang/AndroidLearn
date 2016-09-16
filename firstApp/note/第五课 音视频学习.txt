@@ -1,0 +1,18 @@
+  VideoView类。
+
+五、屏幕旋转
+  1、默认情况下，Android假定程序对屏幕的旋转一无所知。因此当屏幕旋转时，
+  Android销毁并重建活动，即再次调用onCreate()方法，也就是要重新开始播放视频。
+  2、在活动中实现onRetainNonConfigurationInstance()方法，可以保存onDestroy()和
+  onCeate()方法多次调用中需要保持的数据。可以在活动的新实例中使用
+  getLastNonConfigurationInstance()方法恢复这些信息。
+  3、比较复杂的方法就是在AndroidManifest.xml中使用android:configChanges=这一特
+  性。
+
+六、启动顺序
+  1、当一个Activity启动时，会依次调用onCreate()-->onStart()-->onResume()方法，
+  然后进入运行状态。
+  2、onPause()方法是活动在进入后台时调用的，也就是说可能是另一个活动启动，然后
+  覆盖了该活动
+
+七、Android 支持开发人员将数据永久的存储在移动设备上供以后使用，

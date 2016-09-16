@@ -18,6 +18,9 @@ public class Game extends Activity {
     public static final int DIFFICULTY_HARD     = 2;
     private final  int used[][][] = new int[9][9][];
 
+    public static final String PREF_PUZZLE = "puzzle";
+    protected static final int DIFFICULTY_CONTINUE = -1;
+
     private final String easyPuzzle =
             "360000000004230800000004200"+
                     "070460003820000014500013020"+
@@ -143,6 +146,9 @@ public class Game extends Activity {
     private int[] getPuzzle(int diff){
         String puz;
         switch (diff){
+            case DIFFICULTY_CONTINUE:
+                puz = getPreferences(MODE_PRIVATE).getString(PREF_PUZZLE,easyPuzzle);
+                break;
             case DIFFICULTY_HARD:
                 puz = hardPuzzle;
                 break;
@@ -157,6 +163,7 @@ public class Game extends Activity {
         return  fromPuzzleString(puz);
     }
 
+    //将数独中的数字转换为字符串存储在文件当中
     static private String toPuzzleString(int[] puz){
         StringBuilder buf = new StringBuilder();
         for(int element:puz){
@@ -165,6 +172,7 @@ public class Game extends Activity {
         return  buf.toString();
     }
 
+    //将String字符串转换为int数字类型。
     static protected int[] fromPuzzleString(String string){
         int[] puz = new int[string.length()];
         for(int i=0;i<puz.length;i++){
@@ -178,4 +186,18 @@ public class Game extends Activity {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Music.play(this,R.raw.game);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Music.stop(this);
+
+        //Save the current puzzle
+        getPreferences(MODE_PRIVATE).edit().putString(PREF_PUZZLE,toPuzzleString(puzzle)).commit();
+    }
 }
