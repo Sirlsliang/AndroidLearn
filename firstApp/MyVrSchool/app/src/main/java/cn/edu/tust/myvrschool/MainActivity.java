@@ -31,12 +31,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         //设置布局
         setContentView(R.layout.activity_main);
         //set up listeners for all the buttons
-        View continueButton = findViewById(R.id.about_button);
-        continueButton.setOnClickListener(this);
+        View aboutButton = findViewById(R.id.about_button);
+        aboutButton.setOnClickListener(this);
         View newButton  = findViewById(R.id.new_game_button);
         newButton.setOnClickListener(this);
         View exitButton = findViewById(R.id.exit_button);
         exitButton.setOnClickListener(this);
+        View continueButton = findViewById(R.id.continue_button);
+        continueButton.setOnClickListener(this);
         //这个是利用新建的Graphic类来创建View
         // setContentView(new GraphicsView(this));
 

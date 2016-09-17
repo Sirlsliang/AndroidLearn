@@ -1,1 +1,1 @@
-include ':app', ':videotest'
+include ':app', ':videotest', ':browserintent'

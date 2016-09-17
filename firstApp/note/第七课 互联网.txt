@@ -1,0 +1,73 @@
+一、
+  Android 提供了基于WebKit开源项目的全功能Web浏览器。
+  1、BrowserIntent:可以利用Intent打开外部Web浏览器
+  2、BrowserView  :可以将浏览器嵌入应用程序中
+  3、LocalBrowser :解释嵌入式WebView中的JavaScript和Android程序中的Java代码如
+  何彼此通信
+  4、Translate    :将数据绑定、线程和Web服务用于娱乐目的
+
+二、
+  EditText:
+    用户和Android应用进行数据传输的窗口。EditText是TextView的子类。
+      imeOptions:设置右下角IME动作与编辑框相关的动作，如ActionDone右下角将显示一
+    个“完成”.
+      inputType:设置文本的类型，用于帮助输入法显示合适的键盘类型。
+    layout_weight:权重，控制空间之间的地位，控制控件显示的大小时比较有用。
+
+三、Intent.Action
+  1、Intent.ACTION_MAIN: 标识Activity为一个程序的开始（manifest.xml文件中会有配置）
+  2、Intent.ACTION_CALL:呼叫指定的号码
+    eg: 
+      Intent intent = new Intent();
+      intent.setAction(Intent.ACTION_CALL);
+      intent.setData(Uri.parset("tel:XXXXXXX"));
+      startActivity(intent);
+  3、Intent.ACTION_DIALL:调用呼叫面板
+    使用方法参考2
+  4、Intent.ACTION_ALL_APPS:列出所有的应用
+  5、Intent.ACTION_ATTACH_DATA:用于指定一些数据应该附属于一些其他的地方（例如
+  图片数据应该附属于联系人）
+  6、Intent.ACTION_ANSWER:处理呼入的电话
+  7、Intent.ACTION_VIEW:用于显示用户的数据，根据用户的数据类型打开相应的
+  Activity
+    eg:
+      Uri uri = Uri.parse("http://www.google.com"); //浏览器
+      Uri uri = Uri.parse("tel:1212112");//拨号程序
+      Uri uri = Uri.parse("ge0:xxx.xxx,xxx.xxx"); //打开地图定位
+      Intent in = new Intent(Intent.ACTION_VIEW,uri);
+      startActivity(in);
+  在使用这些参数时，需要具有相应的权限。仍有许多需要设置
+    利用新的Intent打开外部程序时，新的活动启动时，它将创建自己的视图，并且程序将
+  被暂停
+四、利用WebView 在视图内打开新的网页
+  使用嵌入式View，
+
+五、android 中的布局
+    android 中有五种布局方式：LinearLayout(线性布局)、FrameLayout(框架布局)、
+  AbsoluteLayout(绝对布局)、RelativeLayout(相对布局)、TableLayout(表格布局)
+  
+  1、LinearLayout：线性布局，一个一个从上往下罗列在屏幕上。
+    垂直布局：android:orientation="vertical"：每一个行只有一个元素
+    水平布局：android:orientation="horizontal"：只有一行，每一个元素依次向右
+    android:layout_weight="1"：weight在垂直布局时，表示行距，水平布局时代表列
+    宽
+  TextView 会占用一定的空间，即使没有赋值也有一定的宽高。
+  2、FrameLayout:最简单的布局对象，被定制为屏幕上的一个空白的备用区域，之后可
+  以在其中填充一个单一对象。不能为FrameLayout中的一个子元素指定一个位置。后一
+  个子元素将会直接在前一个子元素上进行覆盖填充。
+  3、AbsoluteLayout：利用layout_x和layout_y分别定义组件的绝对位置。
+  AbsoluteLayout没有页边框，允许元素之间相互重叠。
+  4、RelativeLayout：相对布局可以理解为某一个元素为参照物，来定位的 布局方式。
+    android:layout_方向=id 表示在这个id对应的空间的方向上
+  5、TableLayout：表格布局
+    TableRow：行
+  五种布局方式可互相嵌套。
+六、使用WebView 可以加载网页
+  webView.loadUrl("url");
+  WebView中的JavaScript可以与Android程序中Java之间互相调用。
+    JavaScript 调用会进入专门用于浏览器的特殊线程，但是Android界面只能通过主
+(GUI)线程进行，因此需要使用Handler类进行转换。
+    通过JavaScript 调用Java代码，需要使用一个或多个方法定义普通的java对象。
+    
+ 
+  

@@ -50,3 +50,5 @@ onOptionsItemSelected(MeunItem item)方法中被激活，该方法需要在Activ
   SD卡不能用于存放代码，每个应用程序都可以从SD卡上读取文件，也可以向SD卡中写入
 文件
   可以利用Context.getExternalFileDir()方法进入外部系统的目录。
+九、Assets
+  放入assets目录中的任何内容都被完整的复制到本地存储设备。

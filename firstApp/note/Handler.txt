@@ -1,0 +1,70 @@
+
+Android UI操作不是线程安全的，因此不可以直接在一个线程中直接新建一个线程刷
+新UI。
+  可以利用Handler实现线程的刷新。
+  我们创建的Service、Activity以及Broadcast 均是一个主线程处理，可理解为一个UI
+  线程。在操作一些比较耗时的操作时，为了不阻塞用户界面，可以考虑使用Thread线程
+  
+  hadler可以分发Message对象和Runable对象到主线程中，每个Handler实例都会绑定到
+  一个创建它的线程中（一般位于主线程）,它有两个作用：
+    (1)、安排消息或Runable在某个主线程中的某个地方执行
+    (2)、安排一个动作在不同的线程中执行
+  这个是Android中的多线程通信？
+      Handler分发消息地方法：
+        post(Runnable)、postAtTime(Runnable,long)、postDelayed(Runnable,long)
+    sendEmptyMessage(int)、sendMessage(Message)、
+    sendMessageAtTime(Message,long)、sendMessageDelayed(Message,long)
+      eg:通过线程修改界面Button的内容
+      punlic class HandlerDemo extends Activity{
+        private Button but = 0;
+        MyHandler myHandelr = null;
+        public void onCreate(Bundle savedInstanceState){
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.main);
+          
+          but = (Button) findViewById(R.id.button);
+          myHandler = new MyHandler();
+          /*当创建一个新的handler 实例时，它会绑定到当前线程和消息的队列中，开
+           *始分发数据。
+            Handler的作用:
+              1、定时执行Message和Runnable对象
+              2、让一个动作在不同的线程中执行
+           *
+           */
+          MyThread m = new MyThread();
+          new Thread(m).start();
+        }
+
+        class MyHandler extends Handler{
+          public MyHandler(){}
+          public MyHandler(Looper L){
+            super(L);
+          }
+        //子类必须重写该方法，接收数据
+        @Override
+          public void handleMessage(Message msg){
+            Lod.d("MYHANDLER","handleMessage.....");
+            super.handleMessage(msg);
+            Bundle b = msg.getData();
+            String color = b.getString("color");
+            HandlerDemo.this.button.append(color);
+          }
+        }
+
+        class MyThread implements Runnable{
+          public void run(){
+            try{
+              Thread.sleep(10000);
+            }catch(InterruptedException e){
+              e.printStackTrace();
+            }
+            Log.d("Thread..","mThread...");
+            Message msg = new Message();
+            Bundle b = new Bundle();
+            b.putString("color","hello");
+            msg.setData(b);
+            MHandlerDemo.this.myHandler.sendMessage(msg);
+          }
+        }
+      }
+ 

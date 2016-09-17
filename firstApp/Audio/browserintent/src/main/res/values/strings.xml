@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BrowserIntent</string>
+
+    <string name="browser_intent">Browser Intent</string>
+    <string name="browser_view">Browser View</string>
+    <string name="lo_browser">Local Browser</string>
+    <string name="go_button">Go</string>
+    <string name="js_textview">TextView</string>
+    <string name="call_javascript_from_android">
+        Call JavaScript from Anroid
+    </string>
+</resources>
