@@ -1,0 +1,4 @@
+一、
+  9月18日早上打开AndroidStudio突然出现R can not be resolved 的错误，经过google
+  发现是xml文件配置出错的原因（在logcat中会有提示哪里出错了）修改配置文件，然
+  后clean project ，bug修复

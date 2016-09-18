@@ -68,6 +68,9 @@
     JavaScript 调用会进入专门用于浏览器的特殊线程，但是Android界面只能通过主
 (GUI)线程进行，因此需要使用Handler类进行转换。
     通过JavaScript 调用Java代码，需要使用一个或多个方法定义普通的java对象。
-    
+  
+    我们看到在JS中调用了一个新的android对象。window.android.callAndroid
+    应该清楚JS中是没有Android 对象的。这个对象是我们另外加上的
+    webView.addJavaScriptInterface(new AndroidBridge(),"android");
  
   

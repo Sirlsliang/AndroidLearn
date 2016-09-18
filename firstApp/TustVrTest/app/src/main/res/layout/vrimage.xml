@@ -6,56 +6,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/video_main_layout"
         android:padding="10dp"
+        android:id="@+id/main_layout"
         android:orientation="vertical">
         <TextView
             style="@style/ContentText"
-            android:id="@+id/video_title"
+            android:id="@+id/title"
             android:textSize="24dp"
             android:textStyle="bold"
             android:textColor="@color/textDark"
-            android:text="@string/video_title"/>
+            android:text="@string/title"/>
         <TextView
             style="@style/ContentText"
-            android:id="@+id/video_subtitle"
-            android:textSize="12dp"
+            android:id="@+id/subtitle"
             android:textColor="@color/textLight"
-            android:text="@string/video_subtitle"/>
+            android:textSize="12dp"
+            android:text="@string/subtitle"/>
         <TextView
             style="@style/ContentText"
-            android:id="@+id/video_paragraph1"
-            android:textSize="15dp"
+            android:id="@+id/paragraph1"
             android:textColor="@color/textDark"
-            android:text="@string/video_paragraph1"/>
-        <com.google.vr.sdk.widgets.video.VrVideoView
+            android:textSize="15dp"
+            android:text="@string/paragraph1"
+            />
+        <com.google.vr.sdk.widgets.pano.VrPanoramaView
+            android:id="@+id/pano_view"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
+            android:scrollbars="none"
             android:layout_height="250dp"
-            android:id="@+id/video_view"
-            android:scrollbars="none"/>
-        <SeekBar
-            android:layout_width="fill_parent"
-            android:layout_height="32dp"
-            android:id="@+id/video_seek_bar"
-            style="?android:attr/progressBarStyleHorizontal"/>
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/video_status_text"
-            android:text="Loading Video..."
-            android:textSize="12dp"
-            android:paddingStart="32dp"
-            android:paddingEnd="32dp"
             />
         <TextView
-            android:id="@+id/video_paragraph2"
             style="@style/ContentText"
+            android:id="@+id/paragraph2"
             android:textColor="@color/textDark"
             android:textSize="@dimen/paragragh_text_size"
-            android:text="@string/video_paragraph2"/>
+            android:text="@string/paragraph2"
+            />
         <TextView
             style="@style/ContentText"
-            android:id="@+id/video_source"
+            android:id="@+id/source"
             android:textColor="@color/textDark"
             android:textSize="15dp"/>
     </LinearLayout>

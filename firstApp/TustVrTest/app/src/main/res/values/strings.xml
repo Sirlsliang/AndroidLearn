@@ -51,5 +51,7 @@
     gorillas living in the Democratic Republic of the Congo near its border with Rwanda
   </string>
     <string name="video_source">Source &lt;a href="https://en.wikipedia.org/wiki/Gorilla">Wikipedia&lt;/a></string>
+    <string name="vrImageBut">Vr Image</string>
+    <string name="vrVideoBut">Vr Video</string>
 </resources>
 
