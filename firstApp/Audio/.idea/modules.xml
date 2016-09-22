@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Audio.iml" filepath="$PROJECT_DIR$/Audio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/browserintent/browserintent.iml" filepath="$PROJECT_DIR$/browserintent/browserintent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/translate/translate.iml" filepath="$PROJECT_DIR$/translate/translate.iml" />
       <module fileurl="file://$PROJECT_DIR$/videotest/videotest.iml" filepath="$PROJECT_DIR$/videotest/videotest.iml" />
     </modules>
   </component>

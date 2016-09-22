@@ -73,4 +73,16 @@
     应该清楚JS中是没有Android 对象的。这个对象是我们另外加上的
     webView.addJavaScriptInterface(new AndroidBridge(),"android");
  
-  
+ 七、使用web服务
+  java.net.HttpURLConnection包中提供了一整套Java标准网络API集。
+  应该新开一个线程来进行网络相应等制作。ExecutorService类管理一个或多个线程。
+  只要将任务（Runnable或Callable的实例)提交到执行器，让它们运行即可。
+
+  layout:文件中的spinner 类似于下拉列表。
+
+  八、打开API并获取JSON数据
+    HttpURLConnection:连接对象
+    URL:url对象，链接相关。
+    利用url.openConnection()方法返回一个连接对象。
+  九、JSON的处理
+    利用JSONObject对象处理返回的json数据。
